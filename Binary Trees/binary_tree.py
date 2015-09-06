@@ -89,37 +89,14 @@ class binary_tree:
             print(node.get_data())
             return
 
-    def find_max_value(self,node,max_value):
-         while(node.get_data()!=None):
-             if(node.left_node()!=None):
-                 self.find_max_value(node.left_node(),max_value)
-                 if node.get_data() > max_value:
-                     max_value=node.get_data()
-
-             else:
-                 if node.get_data() > max_value:
-                     max_value = node.get_data()
-
-             if(node.right_node()!=None):
-                 self.find_max_value(node.right_node(),max_value)
-                 if node.get_data() > max_value:
-                     max_value=node.get_data()
-
-             else:
-                 if node.get_data() > max_value:
-                     max_value=node.get_data()
-             return max_value
-         print max_value
-
-
 if __name__=='__main__':
     new_tree=binary_tree()
     node = new_tree.create_root(1)
     new_tree.insert_element(node,2)
     new_tree.insert_element(node,3)
+    new_tree.insert_element(node,4)
+    new_tree.insert_element(node,5)
+    new_tree.insert_element(node,6)
 
-    max_value=0
-    val = new_tree.find_max_value(node,max_value)
-    print val
-
+   
 
