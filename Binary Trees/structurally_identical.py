@@ -64,7 +64,7 @@ if __name__=='__main__':
     new_tree.insert_element(node1,3)
     new_tree.insert_element(node1,4)
     new_tree.insert_element(node1,5)
-    
+
     node2 = new_tree.create_root(1)
     new_tree.insert_element(node2,2)
     new_tree.insert_element(node2,3)
