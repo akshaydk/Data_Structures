@@ -19,7 +19,7 @@ class Node():
         self.next = next
 
 
-class my_queue():
+class queue():
 
     def __init__(self):
         self.head= None

@@ -47,18 +47,53 @@ class binary_tree:
             self.insert_element(node.left_node(),data)
 
 
-    def deepest_node(self,node):
+    def half_nodes(self,node):
         if node is None:
             return 0
         q=queue()
         q.enqueue(node)
+        count=0
         while q.is_empty()!=True:
             node=q.dequeue()
+            if (node.left_node()==None and node.right_node()!=None) or (node.left_node()!=None and node.right_node()==None):
+                count+=1
             if(node.left_node()!=None):
                 q.enqueue(node.left_node())
             if(node.right_node()!=None):
                 q.enqueue(node.right_node())
-        return node.get_data()
+        return count
+
+    def full_nodes(self,node):
+        if node is None:
+            return 0
+        q=queue()
+        q.enqueue(node)
+        count=0
+        while q.is_empty()!=True:
+            node=q.dequeue()
+            if (node.left_node()!=None and node.right_node()!=None):
+                count+=1
+            if(node.left_node()!=None):
+                q.enqueue(node.left_node())
+            if(node.right_node()!=None):
+                q.enqueue(node.right_node())
+        return count
+
+    def leaf_nodes(self,node):
+        if node is None:
+            return 0
+        q=queue()
+        q.enqueue(node)
+        count=0
+        while q.is_empty()!=True:
+            node=q.dequeue()
+            if (node.left_node()==None and node.right_node()==None):
+                count+=1
+            if(node.left_node()!=None):
+                q.enqueue(node.left_node())
+            if(node.right_node()!=None):
+                q.enqueue(node.right_node())
+        return count
 
 if __name__=='__main__':
     new_tree=binary_tree()
@@ -67,7 +102,11 @@ if __name__=='__main__':
     new_tree.insert_element(node,3)
     new_tree.insert_element(node,4)
     new_tree.insert_element(node,5)
-    deepest_node=new_tree.deepest_node(node)
-    print 'deepest node is',deepest_node
-
+    new_tree.insert_element(node,6)
+    half_nodes=new_tree.half_nodes(node)
+    print 'half nodes =',half_nodes
+    full_nodes=new_tree.full_nodes(node)
+    print 'full nodes =',full_nodes
+    leaf_nodes=new_tree.leaf_nodes(node)
+    print 'leaf nodes =',leaf_nodes
 
